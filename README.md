@@ -21,6 +21,8 @@ Usage
 
 ### Data Bag Example
 
+`knife data bage create stunnel my_item --local`
+
 ```
 {
   "id": "my_item",
@@ -37,6 +39,12 @@ Usage
     }
   ]
 ```
+
+Check at local_mode.
+
+`chef-client -z -o stunnel_smartos::server_from_databag`
+
+
 
 FYI
 ----
