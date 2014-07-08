@@ -27,17 +27,22 @@ Usage
 {
   "id": "my_item",
   "ca": {
-    "hoge": "moge"
+    "ca_hoge": "moge"
+  },
+  "certs": {
+    "cert_hoge": "mogemoge"
   },
   "servers": [
     {
       "name": "https",
       "accept": 443,
-      "connect": 80,
-      "cafile": "hoge.pem",
+      "connect": 80, 
+      "cafile": "ca_hoge.pem",
+      "cert": "cert_hoge.pem",
       "verify": 2
     }
   ]
+}
 ```
 
 Check at local_mode.

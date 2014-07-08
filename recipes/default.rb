@@ -11,4 +11,5 @@ package 'stunnel' do
   action :install
 end
 
+directory '/opt/local/etc/stunnel/ca'
 directory '/opt/local/etc/stunnel/certs'
