@@ -1,4 +1,5 @@
 include_recipe "#{cookbook_name}::default"
+include_recipe "#{cookbook_name}::smf"
 
 template '/opt/local/etc/stunnel/stunnel.conf' do
   source 'stunnel.conf.erb'
@@ -6,6 +7,7 @@ template '/opt/local/etc/stunnel/stunnel.conf' do
   owner 'root'
   group 'root'
   mode '0644'
+  notifies :restart, 'service[stunnel]'
 end
 
 execute "Create stunnel SSL Certificates" do
@@ -20,4 +22,6 @@ end
 node.default[:stunnel][:certificate_path] = '/opt/local/etc/stunnel/stunnel.pem'
 node.default[:stunnel][:client_mode] = false
 
-include_recipe "#{cookbook_name}::default"
+service "stunnel" do
+  action :enable
+end
